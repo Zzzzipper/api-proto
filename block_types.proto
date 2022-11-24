@@ -51,33 +51,6 @@ message BlockRequest {
   }];
 }
 
-message PayInfo {
-  string pan = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Номер карты",
-    format: "string"
-  }];
-  uint32 emonth = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Месяц истечения срока действия карты",
-    format: "integer"
-  }];
-  uint32 eyear = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Год истечения срока действия карты",
-    format: "integer"
-  }];	
-  string cvv = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "CVC2/CVV2. Параметр является опциональным",
-    format: "string"
-  }];	
-  string card_holder = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Фамилия и имя держателя карты",
-    format: "string"
-  }];	
-  string uid = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Идентификатор карты в системе theMAP или значение «Random». При указании значения «Random» выбирается случайная карта из привязанных к данному пользователю",
-    format: "string"
-  }];	
-}
-
 message Split {
   uint32 split_terminal_id = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Номер терминала для проведения операции",
