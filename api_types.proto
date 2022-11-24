@@ -1,0 +1,141 @@
+syntax="proto3";
+
+package api_types;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+// Defines the import path that should be used to import the generated package,
+// and the package name.
+option go_package = ".;api_types";
+
+// Initmethod issues
+message OrderRequest {
+
+}
+
+message Order {
+  string id = 1;
+}
+
+message PayRequest {
+  Order order = 1;
+}
+
+message Payment {
+  string id = 1;
+}
+
+message KeyValue {
+  string Key = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Ключ значения",
+    format: "string"
+  }];
+  string Value = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Значение",
+    format: "string"
+  }];
+}
+
+message KeyValueArray {
+  repeated KeyValue key_value = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Массив ключ-значение"
+  }];
+}
+
+message PayInfo {
+  string pan = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Номер карты",
+    format: "string"
+  }];
+  uint32 emonth = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Месяц истечения срока действия карты",
+    format: "integer"
+  }];
+  uint32 eyear = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Год истечения срока действия карты",
+    format: "integer"
+  }];	
+  string cvv = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "CVC2/CVV2. Параметр является опциональным",
+    format: "string"
+  }];	
+  string card_holder = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Фамилия и имя держателя карты",
+    format: "string"
+  }];	
+  string uid = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Идентификатор карты в системе theMAP или значение «Random». При указании значения «Random» выбирается случайная карта из привязанных к данному пользователю",
+    format: "string"
+  }];	
+}
+
+message PaymentToken {
+  string type = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Тип токена",
+    format: "string"
+  }];	
+  string data = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Данные токена",
+    format: "string"
+  }];	
+}
+
+message Credential {
+  string login = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Логин держателя карты, зарегистрированного в системе Продавца. Используются только в случае, если карта сохранена к конкретному пользователю",
+    format: "string"
+  }];	
+  string password = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Пароль держателя карты, зарегистрированного в системе Продавца. Используются только в случае, если карта сохранена к конкретному пользователю",
+    format: "string"
+  }];
+  string merchant_name = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Наименование продавца. Используются только в случае, если карта сохранена за Мерчантом",
+    format: "string"
+  }];
+  string merchant_password = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Пароль Мерчанта для совершения операций. Используются только в случае, если карта сохранена за Мерчантом",
+    format: "string"
+  }];
+  string terminal_password = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Пароль терминала для совершения операций. Используются только в случае, если карта сохранена за терминалом",
+    format: "string"
+  }];
+}
+
+message PayoutInfo {
+  string pan = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Номер карты для зачисления средств, обязательный при операция C2C",
+    format: "string"
+  }];
+}
+
+message ChargeRequest {
+  BlockHandler block = 1;
+} 
+
+message ChargeHandler {
+  string id = 1;
+}
+
+message PayoutRequest {
+} 
+
+message PayoutHandler {
+  string id = 1;
+}
+
+message VoidHandler {
+  string id = 1;
+}
+
+message RefundHandler {
+  string id = 1;
+}
+
+message OrderStatus {
+  string status = 1;
+}
+
+
