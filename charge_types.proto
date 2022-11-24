@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package block_types;
+
+import "api_types.proto";
+import "block_types.proto";
+
+// Defines the import path that should be used to import the generated package,
+// and the package name.
+option go_package = ".;charge_types";
+
+//
+// Charge method issues
+//
+message ChargeRequest {
+  BlockHandler block = 1;
+} 
+
+message ChargeHandler {
+  string id = 1;
+}

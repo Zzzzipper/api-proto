@@ -111,14 +111,6 @@ message PayoutInfo {
   }];
 }
 
-message ChargeRequest {
-  BlockHandler block = 1;
-} 
-
-message ChargeHandler {
-  string id = 1;
-}
-
 message PayoutRequest {
 } 
 
