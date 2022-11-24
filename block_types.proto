@@ -6,6 +6,8 @@ option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/api";
 
 package api;
 
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 import "api_types.proto";
 
 
