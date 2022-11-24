@@ -1,13 +1,13 @@
 syntax="proto3";
 
-package block_types;
-
-import "api_types.proto";
-import "block_types.proto";
-
 // Defines the import path that should be used to import the generated package,
 // and the package name.
-option go_package = ".;charge_types";
+option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/charge_types";
+
+package charge_types;
+
+import "api_types/api_types.proto";
+import "block_types/block_types.proto";
 
 //
 // Charge method issues
