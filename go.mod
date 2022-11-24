@@ -1,3 +1,3 @@
-module api-proto
+module gitlab.mapcard.pro/external-map-team/api-proto
 
 go 1.18
