@@ -4,7 +4,7 @@ syntax="proto3";
 // and the package name.
 option go_package = "gitlab.mapcard.pro/external-map-team/api-proto";
 
-package api-proto;
+package api;
 
 import "api_types.proto";
 import "block_types.proto";
