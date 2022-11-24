@@ -1,3 +1,3 @@
-module gitlab.mapcard.pro/external-map-team/api-proto
+module gitlab.mapcard.pro/external-map-team/api-proto/payment
 
-go 1.18
+go 1.16
