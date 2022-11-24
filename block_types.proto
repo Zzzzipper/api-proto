@@ -2,11 +2,11 @@ syntax="proto3";
 
 // Defines the import path that should be used to import the generated package,
 // and the package name.
-option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/block_types";
+option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/api";
 
-package block_types;
+package api;
 
-import "api_types/api_types.proto";
+import "api_types.proto";
 
 
 //
