@@ -6,8 +6,8 @@ option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/payment";
 
 package payment;
 
-import "api_types.proto";
-import "block_types.proto";
+import "payment/api_types.proto";
+import "payment/block_types.proto";
 
 //
 // Charge method issues
