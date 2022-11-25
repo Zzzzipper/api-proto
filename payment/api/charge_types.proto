@@ -7,7 +7,7 @@ import "payment/api/block_types.proto";
 
 // Defines the import path that should be used to import the generated package,
 // and the package name.
-option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/api/charge_types;charge_types";
+option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/payment/api/charge_types;charge_types";
 
 //
 // Charge method issues
