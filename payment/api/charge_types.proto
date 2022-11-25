@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package payment.api;
+
+import "payment/api/api_types.proto";
+import "payment/api/block_types.proto";
+
+// Defines the import path that should be used to import the generated package,
+// and the package name.
+option go_package = "gitlab.mapcard.pro/external-map-team/api/charge_types;charge_types";
+
+//
+// Charge method issues
+//
+message ChargeRequest {
+  BlockHandler block = 1;
+} 
+
+message ChargeHandler {
+  string id = 1;
+}
