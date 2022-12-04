@@ -1,0 +1,47 @@
+syntax="proto3";
+
+package merchant.api;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+// Defines the import path that should be used to import the generated package,
+// and the package name.
+option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/merchant/api;api";
+
+//
+// Terminals
+//
+
+message Terminal {
+    string id = 1;
+    google.protobuf.Timestamp create_time = 2;
+    string full_name = 3;
+    string url = 4;
+    string shop_id = 5;
+    string login = 6;
+    string password = 7;
+}
+
+message AddTerminalRequest {
+    string full_name = 1;
+    string url = 2;
+    string shop_id = 3;
+    string login = 4;
+    string password = 5;
+}
+
+message DeleteTerminalRequest {
+    string id = 1;
+}
+
+message ListTerminalsRequest {
+    // Only list terminals created for shop with id
+    string shop_id = 1;
+    // Only list merchants created after this timestamp
+    google.protobuf.Timestamp created_since = 2;
+    // Only list merchants older than this Duration
+    google.protobuf.Duration older_than = 3;
+}

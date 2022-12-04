@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package merchant.api;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "merchant/api/terminal_types.proto";
+import "merchant/api/shop_types.proto";
+import "merchant/api/merchant_types.proto";
+import "merchant/api/partner_types.proto";
+
+// Defines the import path that should be used to import the generated package,
+// and the package name.
+option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/merchant/api;api";
+
+//
+// Seller info
+//
+
+message SellerInfo {
+    bool Status = 1;
+    Terminal TerminalInfo = 2;
+    Shop ShopInfo = 3;
+    Merchant MerchantInfo = 4;
+    Partner PartnerInfo = 5;
+}
+
+message AuthRequest {
+    string login = 1;
+    string password = 2;
+    string token = 3;
+}
