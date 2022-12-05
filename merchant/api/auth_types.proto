@@ -18,7 +18,18 @@ option go_package = "gitlab.mapcard.pro/external-map-team/api-proto/merchant/api
 //
 
 message SellerInfo {
-    bool Status = 1;
+    bool Success = 1 	[(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "Флаг успешности операции	true/false",
+        format: "true,false"
+    }];	
+    string ErrCode = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "Описание ошибки. Передается, если в ответе Success=false",
+        format: "string"
+    }];	
+    string ErrMessage = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "Опциональный параметр. Дополнительное описание ошибки",
+        format: "string"
+    }];
     Terminal TerminalInfo = 2;
     Shop ShopInfo = 3;
     Merchant MerchantInfo = 4;
